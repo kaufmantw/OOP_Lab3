@@ -60,19 +60,19 @@ public class GamePane extends BorderPane{
                 button.setOnAction(e ->{
                     if (this.first == null){
                         this.first = button;
-                        this.first.setOpacity(.50);
+                        this.first.setDisable(true);
                     }
                     else{
                         this.second = button;
-                        if (this.first.getText().equalsIgnoreCase(this.second.getText()) && this.first != this.second){
-                            this.first.setOpacity(.50);
-                            this.second.setOpacity(.50);
+                        if (this.first.getText().equalsIgnoreCase(this.second.getText())){
+                            this.first.setDisable(true);
+                            this.second.setDisable(true);
                             list.remove(this.first);
                             list.remove(this.second);
                         }
                         
                         else{
-                            this.first.setOpacity(1.0);
+                            this.first.setDisable(false);
                         }
                         
                         this.first = null;
