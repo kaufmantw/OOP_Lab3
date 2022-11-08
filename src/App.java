@@ -1,4 +1,5 @@
 import javafx.application.Application;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -9,12 +10,12 @@ public class App extends Application {
     }
 
     public void start(Stage stage){
-        BorderPane bpane = new BorderPane();
-        GamePane pane = new GamePane();
+        GamePane gpane = new GamePane();
 
-        bpane.setCenter(pane);
+        TimePane tpane = new TimePane();
+        //tpane.setAlignment(Pos.CENTER);
 
-        Scene scene = new Scene(bpane, 500, 500);
+        Scene scene = new Scene(gpane, 400, 400);
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
