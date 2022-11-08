@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.property.IntegerProperty;
@@ -12,11 +11,11 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.util.Duration;
 
+//TODO: change opacity -> setting to deactive.
+
 public class GamePane extends BorderPane{
     
-    Button[][] buttons;
     ArrayList<String> emojis;
-    String[][] picture;
     ArrayList<Button> list;
 
     int rows = 4, cols = 4;
@@ -32,8 +31,6 @@ public class GamePane extends BorderPane{
         this.first = null;
         this.second = null;
 
-        buttons = new Button[rows][cols];
-        picture = new String[rows][cols];
         emojis = new ArrayList<>();
 
         GridPane gpane = new GridPane();
@@ -55,8 +52,6 @@ public class GamePane extends BorderPane{
                 int index = ((int)(Math.random() * emojis.size()));
                 String temp = emojis.get(index);
                 emojis.remove(index);
-
-                //picture[i][j] = temp;
                 
                 Button button = new Button(temp);
                 list.add(button);
@@ -84,10 +79,8 @@ public class GamePane extends BorderPane{
                         this.second = null;
                     }
                 });
-                //button.setOnAction(new ButtonHandlerClass(button.getText(), button));
-                buttons[i][j] = button;
+
                 gpane.add(button, i, j);
-                //System.out.print(temp + " ");
             }
         }
     }
@@ -127,7 +120,9 @@ public class GamePane extends BorderPane{
             if(list.size() ==  0){
                 animation.stop();
             }
-            lbl.setText("Time Elapsed: " + counter.get());
+            else{
+                lbl.setText("Time Elapsed: " + counter.get());
+            }
         });
 
     }

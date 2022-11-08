@@ -12,9 +12,6 @@ public class App extends Application {
     public void start(Stage stage){
         GamePane gpane = new GamePane();
 
-        TimePane tpane = new TimePane();
-        //tpane.setAlignment(Pos.CENTER);
-
         Scene scene = new Scene(gpane, 400, 400);
         stage.setScene(scene);
         stage.setResizable(false);
