@@ -11,8 +11,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.util.Duration;
 
-//TODO: change opacity -> setting to deactive.
-
 public class GamePane extends BorderPane{
     
     ArrayList<String> emojis;
@@ -56,6 +54,7 @@ public class GamePane extends BorderPane{
                 Button button = new Button(temp);
                 list.add(button);
                 button.setPrefSize(50,50);
+
                 //use this set on action to do deactive logic.
                 button.setOnAction(e ->{
                     if (this.first == null){
@@ -81,7 +80,7 @@ public class GamePane extends BorderPane{
                 });
 
                 gpane.add(button, i, j);
-            }
+            }// end for loop
         }
     }
 
@@ -109,6 +108,7 @@ public class GamePane extends BorderPane{
         Label lbl = new Label("Time Elapsed: 0");
         hbox.getChildren().add(lbl);
     
+        //logic for incrementing digital timer.
         Timeline animation = new Timeline(new KeyFrame(Duration.millis(1000), ov ->{
             counter.set(counter.get()+1);
 
@@ -116,6 +116,7 @@ public class GamePane extends BorderPane{
         animation.setCycleCount(Timeline.INDEFINITE);
         animation.play();
 
+        //logic for incrementing visual timer.
         counter.addListener(ov ->{
             if(list.size() ==  0){
                 animation.stop();
